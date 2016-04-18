@@ -194,18 +194,6 @@
 		   transform: scale(1);
 		 }
 		</style>
-		<!--Load das variáveis da query-->
-	<script>
-		var query = window.location.search.substring(1); 			
-		var vars = query.split("&"); 
-		var pair1 = vars[0].split("=");
-		document.getElementById('cont').innerHTML = pair1[1];
-		contador = pair1[1];
-		var pair2 = vars[1].split("=");
-		flagWaiter = pair2[1];
-		var pair3 = vars[2].split("=");
-		taxi = pair3[1];
-	</script>
 	
 		<meta charset="utf-8" />
 		<title>Teste de Alcoolemia</title>
@@ -240,26 +228,57 @@
 				<input type="button" id="butaotaxi" class="button" value="Chamar Taxi" onclick="changeclass()">
 				<img id="taxi" class="tax" src="Images/taxi.jpg" height="55" width="65" align="center">
 				<br/>
-				<div id ="backToMainMenu"></div>
-				
-				
 		</div>
+		<div id ="backToMainMenu"></div>
 	</body>
 
-<!--Load das variaveis da query-->
+
 	<script>
+		var query = window.location.search.substring(1); 			
+		var vars = query.split("&"); 
+		var pair1 = vars[0].split("=");
+		document.getElementById('cont').innerHTML = pair1[1];
+		contador = pair1[1];
+		var pair2 = vars[1].split("=");
+		flagWaiter = pair2[1];
+		var pair3 = vars[2].split("=");
+		taxi = pair3[1];
+		
+		
 		var addressElement1 = document.createElement('a');
 		var attribute1 = document.createAttribute("id");
 		attribute1.value = "hrefBackToMain";
 		addressElement1.setAttributeNode(attribute1);
-		var attribute11 = document.createAttribute("class");
-		attribute11.value = "image";
-		addressElement1.setAttributeNode(attribute11);
-		var attribute2 = document.createAttribute("href");
-		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-		attribute2.value = address;
+		
+		var attribute2 = document.createAttribute("class");
+		attribute2.value = "image";
 		addressElement1.setAttributeNode(attribute2);
-		addressElement1.innerHTML = "<img id=\"Back\"  class=\"button\" src =\"Images/backicon.png\" width=\"100\" height=\"75\">";
+		
+		var attribute3 = document.createAttribute("href");
+		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+		attribute3.value = address;
+		addressElement1.setAttributeNode(attribute3);
+		
 		document.getElementById('backToMainMenu').appendChild(addressElement1);
+		
+		/*
+		var imageElement = document.createElement('img');
+		var attribute4 = document.createAttribute("id");
+		attribute4.value = "Back";
+		imageElement.setAttributeNode(attribute4);
+		var attribute5 = document.createAttribute("class");
+		attribute5.value = "button";
+		imageElement.setAttributeNode(attribute5);
+		var attribute6 = document.createAttribute("src");
+		attribute6.value = "Images/backicon.png";
+		imageElement.setAttributeNode(attribute6);
+		var attribute7 = document.createAttribute("width");
+		attribute7.value = "100";
+		imageElement.setAttributeNode(attribute7);
+		var attribute8 = document.createAttribute("height");
+		attribute8.value = "75";
+		imageElement.setAttributeNode(attribute8);
+		document.getElementById('hrefBackToMain').appendChild(imageElement);
+		*/
 	</script>
 </html>
