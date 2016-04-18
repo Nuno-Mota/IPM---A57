@@ -1,0 +1,7 @@
+*.html~
+*.js~
+*.css~
+*.png~
+*.jpg~
+*.jpeg~
+.gitignore~

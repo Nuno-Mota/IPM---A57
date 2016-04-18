@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+	
+		@-webkit-keyframes bluePulse {
+				from { -webkit-box-shadow: 0 0 0 #333; }
+				to { -webkit-box-shadow: 0 0 18px #003f7f; }
+			}
+			
+		h1 {
+			background-color: #007ffe;
+			color: white;
+			text-align: center;
+			text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		}
+
+		.button {
+			display: block;
+			background: #ffffff;
+			padding: 5px;
+			text-align: center;
+			border-radius: 5px;
+			color: white;
+			font-weight: bold;
+			font-size: 16px;
+			display: inline-block;
+		}
+
+		a.button:hover {
+			background-color: #003f7f;
+			-webkit-animation-name: bluePulse;
+			-webkit-animation-duration: 0.5s;
+			-webkit-animation-iteration-count: 1;
+			-webkit-box-shadow: 0 0 18px #003f7f;
+		}
+	</style>
+		<title>Empregado</title>
+		<h1>Chamar Empregado</h1>
+	</head>
+
+<!--corpo do html-->
+	<body style="text-align: center">
+		<table align="center">
+			<tr>
+				<td>
+					<div id="button"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					N&uacute;mero de pessoas na fila:
+					<span id = "cont">0</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id ="backToMainMenu"</div>					
+				</td>
+			</tr>
+	</body>
+	
+
+<!--Load das variÃ¡veis da query-->
+	<script>
+		var query = window.location.search.substring(1); 			
+		var vars = query.split("&"); 
+		var pair1 = vars[0].split("=");
+		document.getElementById('cont').innerHTML = pair1[1];
+		contador = pair1[1];
+		var pair2 = vars[1].split("=");
+		flagWaiter = pair2[1];
+		var pair3 = vars[2].split("=");
+		taxi = pair3[1];
+		
+		
+		var addressElement1 = document.createElement('a');
+		var attribute1 = document.createAttribute("id");
+		attribute1.value = "hrefBackToMain";
+		addressElement1.setAttributeNode(attribute1);
+		var attribute11 = document.createAttribute("class");
+		attribute11.value = "image";
+		addressElement1.setAttributeNode(attribute11);
+		var attribute2 = document.createAttribute("href");
+		var address = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+		attribute2.value = address;
+		addressElement1.setAttributeNode(attribute2);
+		addressElement1.innerHTML = "<img id=\"Back\" class=\"button\" src = \"backicon.png\" width=\"100\" height=\"75\">";
+		document.getElementById('backToMainMenu').appendChild(addressElement1);
+		
+
+
+		var addressElement2 = document.createElement('a');
+		var attribute3 = document.createAttribute("id");
+		attribute3.value = "button";
+		addressElement2.setAttributeNode(attribute3);
+		var attribute4 = document.createAttribute("href");
+		if (flagWaiter == 0)
+			var address2 = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=1" + "&hid3=" + taxi.toString();
+			
+		if (flagWaiter == 1)
+			var address2 = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=0" + "&hid3=" + taxi.toString();
+		
+		attribute4.value = address2;
+		addressElement2.setAttributeNode(attribute4);
+		
+		var attribute5 = document.createAttribute("class");
+		attribute5.value = "image";
+		addressElement2.setAttributeNode(attribute5);
+		if (flagWaiter == 0)
+			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"waitericon.png\" width=\"350\" height=\"260\">";
+			
+		if (flagWaiter == 1)
+			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"nowaitericon.png\" width=\"350\" height=\"260\">";
+
+		document.getElementById('button').appendChild(addressElement2);
+		
+		/*
+		var buttonStyle = document.createElement('style');
+		if (flagWaiter == 0)
+			buttonStyle.innerHTML = "#button {display: block; width:200px; margin:10px auto; text-align:center; background:#a2bb33; font-size:20px; font-family: 'Arial', sans-serif; border-radius: 5px; color:#ffffff;} #button:active { vertical-align: top;}";
+			
+		if (flagWaiter == 1)
+			buttonStyle.innerHTML = "#button {display: block; width:300px; margin:10px auto; text-align:center; background:#e45f43; font-size:20px; font-family: 'Arial', sans-serif; border-radius: 5px; color:#ffffff;} #button:active { vertical-align: top;}";
+
+		document.head.appendChild(buttonStyle);*/
+	</script>
+	
+</html>
