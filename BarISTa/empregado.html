@@ -61,7 +61,7 @@
 	</body>
 	
 
-<!--Load das variÃ¡veis da query-->
+<!--Load das variaveis da query-->
 	<script>
 		var query = window.location.search.substring(1); 			
 		var vars = query.split("&"); 
@@ -82,10 +82,10 @@
 		attribute11.value = "image";
 		addressElement1.setAttributeNode(attribute11);
 		var attribute2 = document.createAttribute("href");
-		var address = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
 		attribute2.value = address;
 		addressElement1.setAttributeNode(attribute2);
-		addressElement1.innerHTML = "<img id=\"Back\" class=\"button\" src = \"backicon.png\" width=\"100\" height=\"75\">";
+		addressElement1.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
 		document.getElementById('backToMainMenu').appendChild(addressElement1);
 		
 
@@ -96,10 +96,10 @@
 		addressElement2.setAttributeNode(attribute3);
 		var attribute4 = document.createAttribute("href");
 		if (flagWaiter == 0)
-			var address2 = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=1" + "&hid3=" + taxi.toString();
+			var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=1" + "&hid3=" + taxi.toString();
 			
 		if (flagWaiter == 1)
-			var address2 = "http://web.ist.utl.pt/ist169401/main.html?hid1="+ contador.toString() + "&hid2=0" + "&hid3=" + taxi.toString();
+			var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=0" + "&hid3=" + taxi.toString();
 		
 		attribute4.value = address2;
 		addressElement2.setAttributeNode(attribute4);
@@ -108,10 +108,10 @@
 		attribute5.value = "image";
 		addressElement2.setAttributeNode(attribute5);
 		if (flagWaiter == 0)
-			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"waitericon.png\" width=\"350\" height=\"260\">";
+			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/waitericon.png\" width=\"350\" height=\"260\">";
 			
 		if (flagWaiter == 1)
-			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"nowaitericon.png\" width=\"350\" height=\"260\">";
+			addressElement2.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/nowaitericon.png\" width=\"350\" height=\"260\">";
 
 		document.getElementById('button').appendChild(addressElement2);
 		

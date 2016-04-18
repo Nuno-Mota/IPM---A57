@@ -73,7 +73,7 @@
 		</style>
 	</head>
 	
-<!--Load de variÃ¡veis de query e criaÃ§Ã£o dinÃ¢mica de estilo de backround colour do empregado-->
+<!--Load de variaveis de query e criaçao dinamica de estilo de backround colour do empregado-->
 	<script>
 		var query = window.location.search.substring(1); 
 		
@@ -104,7 +104,7 @@
 	</script>
 
 
-<!--funÃ§Ãµes para aumentar e diminuir o tamanho da queue do empregado-->
+<!--funcoes para aumentar e diminuir o tamanho da queue do empregado-->
 	<script>
 		function IncreaseQueue(){
 		
@@ -125,7 +125,7 @@
 				contador = i;
 			}
 			
-			var address = "http://web.ist.utl.pt/ist169401/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+			var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
 			document.getElementById('cont').innerHTML = i;
 			document.getElementById('hrefWaiter').href = address;
 		}
@@ -204,12 +204,28 @@
 	
 <!--script para criar dinamicamente o valor a apresentar na queue do empregado e no link do empregado-->
 	<script>
+		/*Alteracao do texto "Pessoas na fila" */
+		var addressElement2 = document.createElement('a');
+		if (flagWaiter == 0)
+			addressElement2.innerHTML = "<span>Pessoas na fila:</span>"
+		if (flagWaiter == 1)
+			addressElement2.innerHTML = "<span>Pessoas a sua frente:</span>"
+		document.getElementById('valorContador').appendChild(addressElement2);
+		
+		
+		var contadorElement14 = document.createElement('p');
+		var attribute14 = document.createAttribute("id");
+		attribute14.value = "cont14";
+		contadorElement14.setAttributeNode(attribute14);
+		document.getElementById('valorContador').appendChild(contadorElement14);
+		
+		
 		var contadorElement = document.createElement('span');
 		var attribute1 = document.createAttribute("id");
 		attribute1.value = "cont";
 		contadorElement.setAttributeNode(attribute1);
 		contadorElement.innerHTML = contador.toString();
-		document.getElementById('valorContador').appendChild(contadorElement);
+		document.getElementById('cont14').appendChild(contadorElement);
 		
 		
 		
@@ -251,13 +267,6 @@
 		simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
 		document.getElementById('alcool').appendChild(simpleCaption2);
 
-		/*Alteracao do texto "Pessoas na fila" */
-		var addressElement2 = document.createElement('a');
-		if (flagWaiter == 0)
-			addressElement2.innerHTML = "<span>Pessoas na fila:</span>"
-		if (flagWaiter == 1)
-			addressElement2.innerHTML = "<span>Pessoas a sua frente:</span>"
-		document.getElementById('valorContador').appendChild(addressElement2);
 	</script>
 	
 </html>
