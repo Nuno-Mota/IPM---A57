@@ -212,15 +212,15 @@
 				var ran = Math.floor((Math.random() * 20) + 5);
 				var rans = ran.toString();
 				var txtfinal = "Cancelar (" + rans + "m)";
-				$(taxi).toggleClass('pulse2');
 				if(document.getElementById("butaotaxi").value == "Chamar Taxi"){
+					$(taxi).toggleClass('pulse2');
 					$(butaotaxi).css( "font-size", "-=3" );
 					$(butaotaxi).val(txtfinal);
 				}
 				else{
-					$(butaotaxi).css( "font-size", "+=3" );
-					$(butaotaxi).val("Chamar Taxi");
 					$(taxi).toggleClass('tax');
+					$(butaotaxi).css( "font-size", "+=3" );
+					$(butaotaxi).val("Chamar Taxi");					
 				}
 			};
 		</script>
