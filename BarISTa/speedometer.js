@@ -542,7 +542,6 @@ function drawResults(){
 	if(iSpeedAsAngle >= 0.5){
 		$(butaotaxi).toggleClass('buttoninf');
 		document.getElementById("myDialog").showModal();
-		alert("pil");
 	}
 
 }

@@ -216,11 +216,11 @@
 				if(document.getElementById("butaotaxi").value == "Chamar Taxi"){
 					$(butaotaxi).css( "font-size", "-=3" );
 					$(butaotaxi).val(txtfinal);
-					taxi = 1;
 				}
 				else{
 					$(butaotaxi).css( "font-size", "+=3" );
 					$(butaotaxi).val("Chamar Taxi");
+					$(taxi).toggleClass('tax');
 				}
 			};
 		</script>
