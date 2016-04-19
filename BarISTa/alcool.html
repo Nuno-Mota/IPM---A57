@@ -215,7 +215,6 @@
 					$(taxi).toggleClass('pulse2');
 					$(butaotaxi).css( "font-size", "-=3" );
 					$(butaotaxi).val(txtfinal);
-					document.getElementById('Imagess').innerHTML = "<img id=\"taxi\" class=\"tax\" src=\"Images/taxi.jpg\" height=\"55\" width=\"65\" align=\"center\">";
 				}
 				else{
 					$(taxi).toggleClass('tax');
@@ -247,14 +246,14 @@
 				<input type="text" align="center" id="textInput" value="" size="2" readonly><b>g/L</b><br/><br/>
 				<input type="button" class="button" id="butao" value="Iniciar" onclick="drawWithInputValue()">
 				<input type="button" id="butaotaxi" class="button" value="Chamar Taxi" onclick="changeclass()">
-				<div id="Imagess"></div>
-<!--				<img id="taxi" class="tax" src="Images/taxi.jpg" height="55" width="65" align="center">-->
+				<img id="taxi" class="tax" src="Images/taxi.jpg" height="55" width="65" align="center">
 				<br/>
 		</div>
 		<div id="buttonINFi" align="center">
 			<dialog id="myDialog"><b>Sua taxa de alcoolemia é superior ao permitido por lei para conduzir.</br>Vá de boleia ou chame um taxi!</br></b>(Esc para sair)</dialog>
 		</div>
-		<div id ="backToMainMenu"></div>
+		<div id ="backToMainMenu"><a id="hrefBackToMain" class="image" href="http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=0&amp;hid2=0&amp;hid3=0"><img id="Back" class="button" src="Images/backicon.png" width="100" height="75"></a>
+		<img id="Back" class="button" src="Images/backicon.png" width="100" height="75"></div>
 	</body>
 
 
