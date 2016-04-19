@@ -539,6 +539,10 @@ function drawResults(){
 		document.getElementById("textInput").style = "color: red";
 	if(iSpeedAsAngle < 1.2 && iSpeedAsAngle > 0.49)
 		document.getElementById("textInput").style = "color: orange";
+	if(iSpeedAsAngle >= 0.5){
+			$(butaotaxi).toggleClass('buttoninf');
+			document.getElementById("myDialog").showModal(); 
+		}
 
 }
 
