@@ -111,7 +111,7 @@
     
       var i = parseInt(document.getElementById('cont').innerHTML);
       i=i+1;
-      
+      contador = i;
       var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
       document.getElementById('cont').innerHTML = i;
       document.getElementById('hrefWaiter').href = address;
