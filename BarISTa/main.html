@@ -1,272 +1,273 @@
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>BarISTa</title>
-		<style>
-		
-			@-webkit-keyframes bluePulse {
-				from { -webkit-box-shadow: 0 0 0 #333; }
-				to { -webkit-box-shadow: 0 0 18px #003f7f; }
-			}
-			
-			h1 {
-				background-color: #007ffe;
-				color: white;
-				text-align: center;
-				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-			}
-			#valorContador { 
-			   position: absolute; 
-			   top: 350px; 
-			   left: 250px; 
-			   width: 100%;
-			   font-size:20px;
-			   z-index: 100;
-			   line-height: 1.5;
-			}
-			#menu_opcoes .box .simple-caption {
-					height: 30px;
-					width: 200px;
-					display: block;
-					bottom: -30px;
-					line-height: 25pt;
-					text-align: center;
-					margin-right: auto;
-					margin-left: auto;
-					color: white;
-					background:  #007ffe;
-					opacity: 0;
-					border-radius: 5px;
-			}
-			#menu_opcoes .box:hover .simple-caption {
-				-moz-transform: translateY(-100%);
-				-o-transform: translateY(-100%);
-				-webkit-transform: translateY(-100%);
-				-webkit-box-shadow: 0 0 18px #003f7f;
-				transform: translateY(-50%);
-				opacity: 1;
-			}			
-			
-			#menu1 {
-				padding: 80px;
-				position: relative; 
-			}
-			img.button:hover {
-				-webkit-animation-name: bluePulse;
-				-webkit-animation-duration: 0.5s;
-				-webkit-animation-iteration-count: 1;
-				-webkit-box-shadow: 0 0 18px #003f7f;
-			}
-			#custom { 
-				position: relative; 
-			}
-			#alcool { 
-				position: relative; 
-			}
-			#cocktail {
-			 
-			}
-			#myCanvas { 
-				position: absolute;
+  <head>
+    <title>BarISTa</title>
+    <style>
+    
+      @-webkit-keyframes bluePulse {
+        from { -webkit-box-shadow: 0 0 0 #333; }
+        to { -webkit-box-shadow: 0 0 18px #003f7f; }
+      }
+      
+      h1 {
+        background-color: #007ffe;
+        color: white;
+        text-align: center;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      }
+      #valorContador { 
+         position: absolute; 
+         top: 350px; 
+         left: 250px; 
+         width: 100%;
+         font-size:20px;
+         z-index: 100;
+         line-height: 1.5;
+      }
+      #menu_opcoes .box .simple-caption {
+          height: 30px;
+          width: 200px;
+          display: block;
+          bottom: -30px;
+          line-height: 25pt;
+          text-align: center;
+          margin-right: auto;
+          margin-left: auto;
+          color: white;
+          background:  #007ffe;
+          opacity: 0;
+          border-radius: 5px;
+      }
+      #menu_opcoes .box:hover .simple-caption {
+        -moz-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -webkit-box-shadow: 0 0 18px #003f7f;
+        transform: translateY(-50%);
+        opacity: 1;
+      }     
+      
+      #menu1 {
+        padding: 80px;
+        position: relative; 
+      }
+      img.button:hover {
+        -webkit-animation-name: bluePulse;
+        -webkit-animation-duration: 0.5s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-box-shadow: 0 0 18px #003f7f;
+      }
+      #custom { 
+        position: relative; 
+      }
+      #alcool { 
+        position: relative; 
+      }
+      #cocktail {
+       
+      }
+      #myCanvas { 
+        position: absolute;
 
-			}
-		</style>
-	</head>
-	
-<!--Load de variaveis de query e criaçao dinamica de estilo de backround colour do empregado-->
-	<script>
-		var query = window.location.search.substring(1); 
-		
-		if (query=="") {
-			flagWaiter = 0;
-			contador = 0;
-			taxi = 0;
-		}
-			
-		if (query!="") {
-			var vars = query.split("&"); 
-			var pair1 = vars[0].split("=");
-			contador = pair1[1];
-			var pair2 = vars[1].split("=");
-			flagWaiter = pair2[1];
-			var pair3 = vars[2].split("=");
-			taxi = pair3[1];		
-		}
-		
-		var sheet = document.createElement('style');
-		if (flagWaiter == 0)
-			sheet.innerHTML = "#waiter { position: relative; }";
+      }
+    </style>
+  </head>
+  
+<!--Load de variaveis de query e criaÃ§ao dinamica de estilo de backround colour do empregado-->
+  <script>
+    var query = window.location.search.substring(1); 
+    
+    if (query=="") {
+      flagWaiter = 0;
+      contador = 0;
+      taxi = 0;
+    }
+      
+    if (query!="") {
+      var vars = query.split("&"); 
+      var pair1 = vars[0].split("=");
+      contador = pair1[1];
+      var pair2 = vars[1].split("=");
+      flagWaiter = pair2[1];
+      var pair3 = vars[2].split("=");
+      taxi = pair3[1];    
+    }
+    
+    var sheet = document.createElement('style');
+    if (flagWaiter == 0)
+      sheet.innerHTML = "#waiter { position: relative; }";
 
-		if (flagWaiter != 0)
-			sheet.innerHTML = "#waiter {background-color: green; position: relative;}";
+    if (flagWaiter != 0)
+      sheet.innerHTML = "#waiter {background-color: #58cc58; position: relative;}";
 
-		document.head.appendChild(sheet);
-	</script>
+    document.head.appendChild(sheet);
+  </script>
 
 
 <!--funcoes para aumentar e diminuir o tamanho da queue do empregado-->
-	<script>
-		function IncreaseQueue(){
-		
-			var i = parseInt(document.getElementById('cont').innerHTML);
-			i=i+1;
-			
-			var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-			document.getElementById('cont').innerHTML = i;
-			document.getElementById('hrefWaiter').href = address;
-		}
+  <script>
+    function IncreaseQueue(){
+    
+      var i = parseInt(document.getElementById('cont').innerHTML);
+      i=i+1;
+      
+      var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+      document.getElementById('cont').innerHTML = i;
+      document.getElementById('hrefWaiter').href = address;
+    }
 
 
-		function DecreaseQueue(){
-		
-			var i = parseInt(document.getElementById('cont').innerHTML);
-			if(i>0) {
-				i=i-1;
-				contador = i;
-			}
-			
-			var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-			document.getElementById('cont').innerHTML = i;
-			document.getElementById('hrefWaiter').href = address;
-		}
+    function DecreaseQueue(){
+    
+      var i = parseInt(document.getElementById('cont').innerHTML);
+      if(i>0) {
+        i=i-1;
+        contador = i;
+      }
+      
+      var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+      document.getElementById('cont').innerHTML = i;
+      document.getElementById('hrefWaiter').href = address;
+    }
 
-		function mover(img){
-			img.style = "opacity:0.5;";
-		}
-		
-		function mout(img){
-			img.style = "opacity:1;";
-				
-		}	
-	</script>
+    function mover(img){
+      img.style = "opacity:0.5;";
+    }
+    
+    function mout(img){
+      img.style = "opacity:1;";
+        
+    } 
+  </script>
 
 
 <!--corpo do html-->
-	<body style="font-family:arial; text-align: center;">
+  <body style="font-family:arial; text-align: center;">
 
-		<h1>BarISTa</h1>
-		<div id ="menu_opcoes">
-			<table align = center>
+    <h1>BarISTa</h1>
+    <div id ="menu_opcoes">
+      <table align = center>
 
-				<td>
-					<table align=center>
-						<tr>
-							<td> 
-								<div id ="menu1" class="box"> 
-								<a href="menu.html"> 
-								<img id="Menu" class="button" src = "Images/menuicon.png" width="350" height="260" onmouseover="mover(Menu);" onmouseout="mout(Menu);"></a>
-								<span class="simple-caption">
-								<p>Menu</p></span>
-								</div> 
-							</td>
-							<td>  
-								<div id ="valorContador"></div>
-								<div id ="waiter" class="box">
-								</div> 
-							</td>
-						</tr>
+        <td>
+          <table align=center>
+            <tr>
+              <td> 
+                <div id ="menu1" class="box"> 
+                <a href="menu.html"> 
+                <img id="Menu" class="button" src = "Images/menuicon.png" width="350" height="260" onmouseover="mover(Menu);" onmouseout="mout(Menu);"></a>
+                <span class="simple-caption">
+                <p>Menu</p></span>
+                </div> 
+              </td>
+              <td>  
+                <div id ="valorContador"></div>
+                <div id ="waiter" class="box">
+                </div> 
+              </td>
+            </tr>
 
-						<tr>
-							<td> 
-								<div id ="custom" class="box">
-								<a href="personalizaveis.html"> 
-								<img id="Cocktail" class="button" src = "Images/cocktailicon.jpeg" width="350" height="260" onmouseover="mover(Cocktail);" onmouseout="mout(Cocktail);"></a>
-								<span class="simple-caption">
-								<p>Cocktail's Personalizaveis</p></span>
-								</div> 
-							</td>
-							<td> 
-								<div id="alcool" class="box"></div>
-							</td>
-						</tr>
-					</table>
-				</td>
+            <tr>
+              <td> 
+                <div id ="custom" class="box">
+                <a href="personalizaveis.html"> 
+                <img id="Cocktail" class="button" src = "Images/cocktailicon.jpeg" width="350" height="260" onmouseover="mover(Cocktail);" onmouseout="mout(Cocktail);"></a>
+                <span class="simple-caption">
+                <p>Cocktail's Personalizaveis</p></span>
+                </div> 
+              </td>
+              <td> 
+                <div id="alcool" class="box"></div>
+              </td>
+            </tr>
+          </table>
+        </td>
 
-				<td>
-					<table align=center >
-						<tr> 
-							<td> 
-								<button onclick="IncreaseQueue();">Aumentar Fila</button>
-							</td>
-						</tr>
-						<tr> 
-							<td> 
-								<button onclick="DecreaseQueue();">Diminuir Fila</button>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</table>
-		</div>
+        <td>
+          <table align=center >
+            <tr> 
+              <td> 
+                <button onclick="IncreaseQueue();">Aumentar Fila</button>
+              </td>
+            </tr>
+            <tr> 
+              <td> 
+                <button onclick="DecreaseQueue();">Diminuir Fila</button>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </table>
+    </div>
 
-	</body>
+  </body>
 
-	
+  
 <!--script para criar dinamicamente o valor a apresentar na queue do empregado e no link do empregado-->
-	<script>
-		/*Alteracao do texto "Pessoas na fila" */
-		var addressElement2 = document.createElement('a');
-		if (flagWaiter == 0)
-			addressElement2.innerHTML = "<span>Pessoas <br/\>na fila:</span>"
-		if (flagWaiter == 1)
-			addressElement2.innerHTML = "<span>Pessoas a <br/\>sua frente:</span>"
-		document.getElementById('valorContador').appendChild(addressElement2);
-		
-		
-		var contadorElement14 = document.createElement('p');
-		var attribute14 = document.createAttribute("id");
-		attribute14.value = "cont14";
-		contadorElement14.setAttributeNode(attribute14);
-		document.getElementById('valorContador').appendChild(contadorElement14);
-		
-		
-		var contadorElement = document.createElement('span');
-		var attribute1 = document.createAttribute("id");
-		attribute1.value = "cont";
-		contadorElement.setAttributeNode(attribute1);
-		contadorElement.innerHTML = contador.toString();
-		document.getElementById('cont14').appendChild(contadorElement);
-		
-		
-		
-		var addressElement = document.createElement('a');
-		var attribute2 = document.createAttribute("id");
-		attribute2.value = "hrefWaiter";
-		addressElement.setAttributeNode(attribute2);
-		var attribute3 = document.createAttribute("href");
-		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-		attribute3.value = address;
-		addressElement.setAttributeNode(attribute3);
-		addressElement.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/waitericon.png\" width=\"350\" height=\"260\"  onmouseover=\"mover(Waiter)\" onmouseout=\"mout(Waiter)\">";
-		document.getElementById('waiter').appendChild(addressElement);
-		
-		var simpleCaption = document.createElement('span');
-		var attribute4 = document.createAttribute("class");
-		attribute4.value = "simple-caption";
-		simpleCaption.setAttributeNode(attribute4);
-		simpleCaption.innerHTML = "<p>Chamar empregado</p>"
-		document.getElementById('waiter').appendChild(simpleCaption);
-		
-		
-		var addressElement1 = document.createElement('a');
-		var attribute5 = document.createAttribute("id");
-		attribute5.value = "hrefAlchool";
-		addressElement1.setAttributeNode(attribute5);
-		var attribute6 = document.createAttribute("href");
-		var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/alcool.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-		attribute6.value = address2;
-		addressElement1.setAttributeNode(attribute6);
-		addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover(Alcohol);\" onmouseout=\"mout(Alcohol);\">";
-		document.getElementById('alcool').appendChild(addressElement1);
-		
-		
-		var simpleCaption2 = document.createElement('span');
-		var attribute7 = document.createAttribute("class");
-		attribute7.value = "simple-caption";
-		simpleCaption2.setAttributeNode(attribute7);
-		simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
-		document.getElementById('alcool').appendChild(simpleCaption2);
+  <script>
+    /*Alteracao do texto "Pessoas na fila" */
+    var addressElement2 = document.createElement('a');
+    if (flagWaiter == 0)
+      addressElement2.innerHTML = "<span>Pessoas <br/\>na fila:</span>"
+    if (flagWaiter == 1)
+      addressElement2.innerHTML = "<span>Pessoas a <br/\>sua frente:</span>"
+    document.getElementById('valorContador').appendChild(addressElement2);
+    
+    
+    var contadorElement14 = document.createElement('p');
+    var attribute14 = document.createAttribute("id");
+    attribute14.value = "cont14";
+    contadorElement14.setAttributeNode(attribute14);
+    document.getElementById('valorContador').appendChild(contadorElement14);
+    
+    
+    var contadorElement = document.createElement('span');
+    var attribute1 = document.createAttribute("id");
+    attribute1.value = "cont";
+    contadorElement.setAttributeNode(attribute1);
+    contadorElement.innerHTML = contador.toString();
+    document.getElementById('cont14').appendChild(contadorElement);
+    
+    
+    
+    var addressElement = document.createElement('a');
+    var attribute2 = document.createAttribute("id");
+    attribute2.value = "hrefWaiter";
+    addressElement.setAttributeNode(attribute2);
+    var attribute3 = document.createAttribute("href");
+    var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+    attribute3.value = address;
+    addressElement.setAttributeNode(attribute3);
+    addressElement.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/waitericon.png\" width=\"350\" height=\"260\"  onmouseover=\"mover(Waiter)\" onmouseout=\"mout(Waiter)\">";
+    document.getElementById('waiter').appendChild(addressElement);
+    
+    var simpleCaption = document.createElement('span');
+    var attribute4 = document.createAttribute("class");
+    attribute4.value = "simple-caption";
+    simpleCaption.setAttributeNode(attribute4);
+    simpleCaption.innerHTML = "<p>Chamar empregado</p>"
+    document.getElementById('waiter').appendChild(simpleCaption);
+    
+    
+    var addressElement1 = document.createElement('a');
+    var attribute5 = document.createAttribute("id");
+    attribute5.value = "hrefAlchool";
+    addressElement1.setAttributeNode(attribute5);
+    var attribute6 = document.createAttribute("href");
+    var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/alcool.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+    attribute6.value = address2;
+    addressElement1.setAttributeNode(attribute6);
+    addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover(Alcohol);\" onmouseout=\"mout(Alcohol);\">";
+    document.getElementById('alcool').appendChild(addressElement1);
+    
+    
+    var simpleCaption2 = document.createElement('span');
+    var attribute7 = document.createAttribute("class");
+    attribute7.value = "simple-caption";
+    simpleCaption2.setAttributeNode(attribute7);
+    simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
+    document.getElementById('alcool').appendChild(simpleCaption2);
 
-	</script>
-	
+  </script>
+  
 </html>
