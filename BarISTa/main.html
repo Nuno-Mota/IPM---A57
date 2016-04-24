@@ -216,15 +216,15 @@
 <!--script para criar dinamicamente o valor a apresentar na queue do empregado e no link do empregado-->
   <script>
     /*Alteracao do texto "Pessoas na fila" */
-    var addressElement2 = document.createElement('a');
+    var addressElement2 = document.createElement('span');
     if (flagWaiter == 0)
-      addressElement2.innerHTML = "<span>Pessoas na fila:</span>"
+      addressElement2.innerHTML = "Pessoas na fila:"
     if (flagWaiter == 1)
-      addressElement2.innerHTML = "<span>Pessoas a <br/\>sua frente:</span>"
+      addressElement2.innerHTML = "Pessoas a <br/\>sua frente:"
     document.getElementById('valorContador').appendChild(addressElement2);
     
     
-    var contadorElement14 = document.createElement('p');
+    var contadorElement14 = document.createElement('span');
     var attribute14 = document.createAttribute("id");
     attribute14.value = "cont14";
     contadorElement14.setAttributeNode(attribute14);
