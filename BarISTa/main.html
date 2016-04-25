@@ -171,8 +171,6 @@
             <tr>
               <td> 
                 <div id ="custom" class="box">
-                <a href="bebidas.html"> 
-                <img id="Cocktail" class="button" src = "Images/cocktailicon.jpeg" width="350" height="260" onmouseover="mover(Cocktail);" onmouseout="mout(Cocktail);"></a>
                 <span class="simple-caption">
                 <p>Cocktail's Personalizaveis</p></span>
                 </div> 
@@ -271,12 +269,23 @@
     addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover(Alcohol);\" onmouseout=\"mout(Alcohol);\">";
     document.getElementById('alcool').appendChild(addressElement1);
     
-    
+    var addressElement331 = document.createElement('a');
+    var attribute335 = document.createAttribute("id");
+    attribute335.value = "hrefBebidas";
+    addressElement331.setAttributeNode(attribute5);
+    var attribute336 = document.createAttribute("href");
+    var address332 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/bebidas.html#tab1?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+    attribute336.value = address332;
+    addressElement331.setAttributeNode(attribute336);
+    addressElement331.innerHTML = "<img id=\"Bebidas\" class=\"button\" src = \"Images/cocktailicon.jpeg\" width=\"350\" height=\"260\" onmouseover=\"mover(Cocktail);\" onmouseout=\"mout(Cocktail);\">";
+    document.getElementById('custom').appendChild(addressElement331);
+
+
     var simpleCaption2 = document.createElement('span');
     var attribute7 = document.createAttribute("class");
     attribute7.value = "simple-caption";
     simpleCaption2.setAttributeNode(attribute7);
-    simpleCaption2.innerHTML = "<p>Teste de Alcoolemiaaaaa</p>"
+    simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
     document.getElementById('alcool').appendChild(simpleCaption2);
 
   </script>
