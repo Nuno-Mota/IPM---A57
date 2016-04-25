@@ -71,6 +71,10 @@
         position: absolute;
 
       }
+
+      #scroll {
+        height: 300px; width:1000px; overflow: auto; 
+      }
     </style>
   </head>
   
@@ -150,37 +154,39 @@
       <table align = center>
 
         <td>
-          <table align=center>
-            <tr>
-              <td> 
-                <div id ="menu1" class="box"> 
-                <a href="menu.html"> 
-                <img id="Menu" class="button" src = "Images/menuicon.png" width="350" height="260" onmouseover="mover(Menu);" onmouseout="mout(Menu);"></a>
-                <span class="simple-caption">
-                <p>Menu</p></span>
-                </div> 
-              </td>
-              <td>  
-                <div id ="valorContador"></div>
-                <div id ="waiter" class="box">
-                </div> 
-              </td>
-            </tr>
+          <div id = "scroll">
+            <table align=center>
+              <tr>
+                <td> 
+                  <div id ="menu1" class="box"> 
+                  <a href="menu.html"> 
+                  <img id="Menu" class="button" src = "Images/menuicon.png" width="350" height="260" onmouseover="mover(Menu);" onmouseout="mout(Menu);"></a>
+                  <span class="simple-caption">
+                  <p>Menu</p></span>
+                  </div> 
+                </td>
+                <td>  
+                  <div id ="valorContador"></div>
+                  <div id ="waiter" class="box">
+                  </div> 
+                </td>
+              </tr>
 
-            <tr>
-              <td> 
-                <div id ="custom" class="box">
-                <a href="personalizaveis.html"> 
-                <img id="Cocktail" class="button" src = "Images/cocktailicon.jpeg" width="350" height="260" onmouseover="mover(Cocktail);" onmouseout="mout(Cocktail);"></a>
-                <span class="simple-caption">
-                <p>Cocktail's Personalizaveis</p></span>
-                </div> 
-              </td>
-              <td> 
-                <div id="alcool" class="box"></div>
-              </td>
-            </tr>
-          </table>
+              <tr>
+                <td> 
+                  <div id ="custom" class="box">
+                  <a href="personalizaveis.html"> 
+                  <img id="Cocktail" class="button" src = "Images/cocktailicon.jpeg" width="350" height="260" onmouseover="mover(Cocktail);" onmouseout="mout(Cocktail);"></a>
+                  <span class="simple-caption">
+                  <p>Cocktail's Personalizaveis</p></span>
+                  </div> 
+                </td>
+                <td> 
+                  <div id="alcool" class="box"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
         </td>
 
         <td>
