@@ -171,8 +171,6 @@
             <tr>
               <td> 
                 <div id ="custom" class="box">
-               <span class="simple-caption">
-                <p>Cocktail's Personalizaveis</p></span>
                 </div> 
               </td>
               <td> 
@@ -268,6 +266,14 @@
     addressElement1.setAttributeNode(attribute6);
     addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover(Alcohol);\" onmouseout=\"mout(Alcohol);\">";
     document.getElementById('alcool').appendChild(addressElement1);
+
+    var simpleCaption2 = document.createElement('span');
+    var attribute7 = document.createAttribute("class");
+    attribute7.value = "simple-caption";
+    simpleCaption2.setAttributeNode(attribute7);
+    simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
+    document.getElementById('alcool').appendChild(simpleCaption2);
+
     
     var addressElement331 = document.createElement('a');
     var attribute335 = document.createAttribute("id");
@@ -280,13 +286,14 @@
     addressElement331.innerHTML = "<img id=\"Cocktail\" class=\"button\" src = \"Images/cocktailicon.jpeg\" width=\"350\" height=\"260\" onmouseover=\"mover(Cocktail);\" onmouseout=\"mout(Cocktail);\">";
     document.getElementById('custom').appendChild(addressElement331);
 
+    var simpleCaption332 = document.createElement('span');
+    var attribute337 = document.createAttribute("class");
+    attribute337.value = "simple-caption";
+    simpleCaption332.setAttributeNode(attribute337);
+    simpleCaption332.innerHTML = "<p>Cocktail's Personalizaveis</p>"
+    document.getElementById('custom').appendChild(simpleCaption332);
 
-    var simpleCaption2 = document.createElement('span');
-    var attribute7 = document.createAttribute("class");
-    attribute7.value = "simple-caption";
-    simpleCaption2.setAttributeNode(attribute7);
-    simpleCaption2.innerHTML = "<p>Teste de Alcoolemia</p>"
-    document.getElementById('alcool').appendChild(simpleCaption2);
+
 
   </script>
   
