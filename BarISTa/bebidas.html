@@ -124,6 +124,19 @@
     top: 780px;
     left: 850px;
   }
+
+  .button {
+      display: block;
+      background: #ffffff;
+      padding: 5px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+    }
+
 </style>
 
 <body>
@@ -198,19 +211,19 @@
   taxi = pair3[1];
 
 
-  var addressElement1 = document.createElement('a');
-  var attribute1 = document.createAttribute("id");
-  attribute1.value = "hrefBackToMain";
-  addressElement1.setAttributeNode(attribute1);
-  var attribute11 = document.createAttribute("class");
-  attribute11.value = "image";
-  addressElement1.setAttributeNode(attribute11);
-  var attribute2 = document.createAttribute("href");
+  var addressElement331 = document.createElement('a');
+  var attribute331 = document.createAttribute("id");
+  attribute331.value = "hrefBackToMain";
+  addressElement331.setAttributeNode(attribute331);
+  var attribute3311 = document.createAttribute("class");
+  attribute3311.value = "image";
+  addressElement331.setAttributeNode(attribute3311);
+  var attribute332 = document.createAttribute("href");
   var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-  attribute2.value = address;
-  addressElement1.setAttributeNode(attribute2);
-  addressElement1.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
-  document.getElementById('backToMainMenu').appendChild(addressElement1);
+  attribute332.value = address;
+  addressElement331.setAttributeNode(attribute332);
+  addressElement331.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
+  document.getElementById('backToMainMenu').appendChild(addressElement331);
 
   function adicionar_bebida(variavel) {
 
@@ -228,7 +241,7 @@
       addressElement.setAttributeNode(attribute2);
 
       var texto = document.getElementById(variavel).id;
-      addressElement.innerHTML="<img id=\"whiskey\" class = \"button\" src = \"Images/canceldrink.png\" height=\"25\" onclick=\"remover_bebida('" + teste + "')\">" + texto ;
+      addressElement.innerHTML="<img id=\"whiskey\" src = \"Images/canceldrink.png\" height=\"25\" onclick=\"remover_bebida('" + teste + "')\">" + texto ;
 
 
       document.getElementById('bebidas_adicionadas').appendChild(addressElement);

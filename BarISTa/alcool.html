@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -41,13 +42,14 @@
 			width: 115px;
 			height: 25px;
 			background: #007ffe;
-			padding: 5px;
 			text-align: center;
 			border-radius: 5px;
 			color: white;
 			font-weight: bold;
 			font-size: 18px;
 			display: inline-block;
+			padding-left: 20px;
+			margin-left: 20px;
 			
 		}
 		a.button:hover {
@@ -108,11 +110,15 @@
 		#textbutt {
 			padding-left: 0;
 			padding-right: 0;
-			margin-left: auto;
-			margin-right: auto;
 			display: block;
-			margin: 15px;
-			align: center;
+		}
+		
+		#backToMainMenu {
+			margin-top: 0px;
+		}
+		
+		#taxi {
+			margin-top: 7px;
 		}
 		
 		.pulse2 {
@@ -200,29 +206,174 @@
 			-webkit-animation-duration: 1s;
 			-webkit-animation-iteration-count: infinite;
 			-webkit-box-shadow: 0 0 18px #d3d3d3;			
-		}	
+		}
+		div.timer {
+			border:1px #666666 solid;
+			width:190px;
+			height:50px;
+			line-height:50px;
+			font-size:36px;
+			font-family:"Courier New", Courier, monospace;
+			text-align:center;
+			margin:auto;
+			margin-top: 20px;
+		}
+		
+		#tempo{
+			opacity: 0;
+		}
+		
 		</style>
 	
 		<meta charset="utf-8" />
 		<title>Teste de Alcoolemia</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="speedometer.js"></script>
-		<script>
+		<script>				
 			function changeclass () {
-				var ran = Math.floor((Math.random() * 20) + 5);
+				var ran = Math.floor((Math.random() * 16) + 3);
 				var rans = ran.toString();
 				var txtfinal = "Cancelar (" + rans + "m)";
 				if(document.getElementById("butaotaxi").value == "Chamar Taxi"){
 					$(taxi).toggleClass('pulse2');
 					$(butaotaxi).css( "font-size", "-=3" );
 					$(butaotaxi).val(txtfinal);
+					timer.reset(ran);
+					timer.start();
+					$(tempo).css("opacity", "+=1");
+					$(backToMainMenu).css("margin-top", "+=110");
+					
 				}
 				else{
 					$(taxi).toggleClass('tax');
 					$(butaotaxi).css( "font-size", "+=3" );
-					$(butaotaxi).val("Chamar Taxi");					
+					$(butaotaxi).val("Chamar Taxi");
+					timer.stop();
+					$(tempo).css("opacity", "-=1");
+					$(backToMainMenu).css("margin-top", "-=110");
 				}
 			};
+			
+			function _timer(callback)
+			{
+				var time = 0;     //  The default time of the timer
+				var mode = 1;     //    Mode: count up or count down
+				var status = 0;    //    Status: timer is running or stoped
+				var timer_id;    //    This is used by setInterval function
+				
+				// this will start the timer ex. start the timer with 1 second interval timer.start(1000) 
+				this.start = function(interval)
+				{
+					interval = (typeof(interval) !== 'undefined') ? interval : 1000;
+			 
+					if(status == 0)
+					{
+						status = 1;
+						timer_id = setInterval(function()
+						{
+							switch(mode)
+							{
+								default:
+								if(time)
+								{
+									time--;
+									generateTime();
+									if(typeof(callback) === 'function') callback(time);
+								}
+								break;
+								
+								case 1:
+								if(time < 86400)
+								{
+									time++;
+									generateTime();
+									if(typeof(callback) === 'function') callback(time);
+								}
+								break;
+							}
+						}, interval);
+					}
+				}
+				
+				//  Same as the name, this will stop or pause the timer ex. timer.stop()
+				this.stop =  function()
+				{
+					if(status == 1)
+					{
+						status = 0;
+						clearInterval(timer_id);
+					}
+				}
+				
+				// Reset the timer to zero or reset it to your own custom time ex. reset to zero second timer.reset(0)
+				this.reset =  function(sec)
+				{
+					sec = (typeof(sec) !== 'undefined') ? sec : 0;
+					time = sec;
+					generateTime(time);
+				}
+				
+				// Change the mode of the timer, count-up (1) or countdown (0)
+				this.mode = function(tmode)
+				{
+					mode = tmode;
+				}
+				
+				// This methode return the current value of the timer
+				this.getTime = function()
+				{
+					return time;
+				}
+				
+				// This methode return the current mode of the timer count-up (1) or countdown (0)
+				this.getMode = function()
+				{
+					return mode;
+				}
+				
+				// This methode return the status of the timer running (1) or stoped (1)
+				this.getStatus
+				{
+					return status;
+				}
+				
+				// This methode will render the time variable to hour:minute:second format
+				function generateTime()
+				{
+					var second = time % 60;
+					var minute = Math.floor(time / 60) % 60;
+					var hour = Math.floor(time / 3600) % 60;
+					
+					second = (second < 10) ? '0'+second : second;
+					minute = (minute < 10) ? '0'+minute : minute;
+					hour = (hour < 10) ? '0'+hour : hour;
+					
+					$('div.timer span.second').html(second);
+					$('div.timer span.minute').html(minute);
+					$('div.timer span.hour').html(hour);
+				}
+			}
+			 
+			// example use
+			var timer;
+			 
+			$(document).ready(function(e) 
+			{
+				timer = new _timer
+				(
+					function(time)
+					{
+						if(time == 0)
+						{
+							timer.stop();
+							document.getElementById("myDialog2").showModal(); 
+						}
+					}
+				);
+				timer.reset(0);
+				timer.mode(0);
+			});
+			
 		</script>
 		<script>
 			var query = window.location.search.substring(1); 			
@@ -243,16 +394,22 @@
 		<canvas id="tutorial" width="440" height="220">
 			Canvas not available.
 		</canvas>
+		<div align="center"><input type="text" align="center" id="textInput" value="" size="2" readonly><b>g/L</b><br/><br/></div>
 		<div id="textbutt" align="center">
-				<input type="text" align="center" id="textInput" value="" size="2" readonly><b>g/L</b><br/><br/>
 				<input type="button" class="button" id="butao" value="Iniciar" onclick="drawWithInputValue()">
 				<input type="button" id="butaotaxi" class="button" value="Chamar Taxi" onclick="changeclass()">
-				<img id="taxi" class="tax" src="Images/taxi.jpg" height="55" width="65" align="center">
 				<br/>
 		</div>
 		<div id="buttonINFi" align="center">
 			<dialog id="myDialog"><b>Sua taxa de alcoolemia é superior ao permitido por lei para conduzir.</br>Vá de boleia ou chame um taxi!</br></b>(Esc para sair)</dialog>
 		</div>
+		<div id="buttonINFi2" align="center">
+			<dialog id="myDialog2"><b>O seu taxi chegou!</br></b>(Esc para sair)</dialog>
+		</div>
+		<div id="tempo" class="timer" align="center">
+            <span class="minute">00</span>:<span class="second">00</span>
+			<img id="taxi" class="tax" src="Images/taxi.jpg" height="100" width="100" align="center">			
+        </div>
 		<div id ="backToMainMenu" align="center">
 			<a id="hrefBackToMain" class="image" href="http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=0&amp;hid2=0&amp;hid3=0">
 			<img id="Back" src="Images/backicon.png" width="100" height="75"></a>
@@ -274,41 +431,5 @@
 		
 		
 		
-		/*
-		var addressElement1 = document.createElement('a');
-		var attribute1 = document.createAttribute("id");
-		attribute1.value = "hrefBackToMain";
-		addressElement1.setAttributeNode(attribute1);
-		
-		var attribute2 = document.createAttribute("class");
-		attribute2.value = "image";
-		addressElement1.setAttributeNode(attribute2);
-		
-		var attribute3 = document.createAttribute("href");
-		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-		attribute3.value = address;
-		addressElement1.setAttributeNode(attribute3);
-		
-		document.getElementById('backToMainMenu').appendChild(addressElement1);
-		
-
-		var imageElement = document.createElement('img');
-		var attribute4 = document.createAttribute("id");
-		attribute4.value = "Back";
-		imageElement.setAttributeNode(attribute4);
-		var attribute5 = document.createAttribute("class");
-		attribute5.value = "button";
-		imageElement.setAttributeNode(attribute5);
-		var attribute6 = document.createAttribute("src");
-		attribute6.value = "Images/backicon.png";
-		imageElement.setAttributeNode(attribute6);
-		var attribute7 = document.createAttribute("width");
-		attribute7.value = "100";
-		imageElement.setAttributeNode(attribute7);
-		var attribute8 = document.createAttribute("height");
-		attribute8.value = "75";
-		imageElement.setAttributeNode(attribute8);
-		document.getElementById('hrefBackToMain').appendChild(imageElement);
-		*/
 	</script>
 </html>
