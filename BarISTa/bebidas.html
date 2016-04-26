@@ -124,6 +124,16 @@
     top: 780px;
     left: 850px;
   }
+  #confirmarBebida {
+    position: absolute;
+    top: 760px;
+    left: 1500px;
+  }
+  #limpar {
+    position: absolute;
+    top: 380px;
+    left: 640px;
+  }
 
   .button {
       display: block;
@@ -150,21 +160,21 @@
           <section id="tab1">
             <h2><a href="#tab1">Bebidas alco&oacute;licas</a></h2>
             <div id="tab1-content">
-              <table align="center">
+              <table align="center" width="600">
                 <tr>
                   <td>
                     <img id="whiskey" src = "Images/whiskey.png" height="250" onclick="adicionar_bebida('whiskey')">
                   </td>
                   <td>
-                    <span>Descricao do whiskey</span>
+                    <span>Whiskey Jack Daniels: Bebida alco&oacute;lica fermentada preparada &agrave; base de malte de cevada, milho, centeio e &aacute;gua (40% &aacute;lcool)</span>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <img id="beer" src = "Images/beer.png" height="250" onclick="adicionar_bebida('beer')">
+                    <img id="cerveja" src = "Images/beer.png" height="250" onclick="adicionar_bebida('cerveja')">
                   </td>
                   <td>
-                    <span>Descricao da cerveja</span>
+                    <span>Cerveja Super Bock: Cerveja portuguesa (5,2% &aacute;lcool)</span>
                   </td>
                 </tr>
                 <tr>
@@ -172,7 +182,7 @@
                     <img id="rum" src = "Images/rum.PNG" height="250" onclick="adicionar_bebida('rum')">
                   </td>
                   <td>
-                    <span>Descricao do rum</span>
+                    <span>Rum Bacardi: Bebida alco&oacute;lica fermentada preparada &agrave; base do mela&ccedil;o e de caldo de cana  (37,5% &aacute;lcool)</span>
                   </td>
                 </tr>
               </table>
@@ -181,12 +191,46 @@
           
           <section id="tab2">
             <h2><a href="#tab2">Bebidas n&atilde;o alco&oacute;licas</a></h2>
-            <p>This content appears on tab 2.</p>
+            <table align="center" width="600">
+              <tr>
+                <td>
+                  <img id="cocacola" src = "Images/cocacola.png" height="250" onclick="adicionar_bebida('cocacola')">
+                </td>
+                <td>
+                  <span>Coca cola: Bebida carbonada (com g&aacute;s) feita &agrave; base de &aacute;gua gaseificada, a&ccedil;&uacute;car, cafe&iacute;na e extrato de Noz de cola</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img id="fanta" src = "Images/fanta.png" height="250" onclick="adicionar_bebida('fanta')">
+                </td>
+                <td>
+                  <span>Fanta Laranja: Bebida carbonada (com g&aacute;s) feita &agrave; base de soro de leite coalhado, baga&ccedil;o de ma&ccedil;&atilde;, a&ccedil;&uacute;car e concentrado de laranja</span>
+                </td>
+              </tr>
+            </table>
           </section>
           
           <section id="tab3">
             <h2><a href="#tab3">Extras</a></h2>
-            <p>This content appears on tab 3.</p>
+            <table align="center" width="600">
+              <tr>
+                <td>
+                  <img id="limao" src = "Images/lemon.png" height="250" onclick="adicionar_bebida('limao')">
+                </td>
+                <td>
+                  <span>Rodela de Lim&atilde;o: Fruto &aacute;cido (2 un.)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img id="azeitonas" src = "Images/olive.png" height="100" onclick="adicionar_bebida('azeitonas')">
+                </td>
+                <td>
+                  <span>Azeitonas verdes: Pequena por&ccedil;&atilde;o de azeitonas verdes (2 un.)</span>
+                </td>
+              </tr>
+            </table>
           </section>
 
         </article>
@@ -200,6 +244,14 @@
       <a id="hrefBackToMain" class="image" href="http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=0&amp;hid2=0&amp;hid3=0">
       <img id="Back" src="Images/backicon.png" width="100" height="75"></a>
     </div>
+  <div id ="confirmarBebida" align="center">
+      <img id="Back" src="Images/forward.png" width="100" height="75" onclick = "mostrar_dialogo()">
+    <div id="buttonINFi" align="center">
+      <dialog id="myDialog"><b>A sua bebida foi encomendada!</br></b>(Esc para sair)</dialog>
+    </div>
+    </div>
+  <div id ="limpar" align="center">
+      <img id="Limpar" src="Images/canceldrink.png" width="100" height="75" onclick = "limpar()"> </div>
 </body>
 
 <script>
@@ -227,6 +279,17 @@
   addressElement331.setAttributeNode(attribute332);
   addressElement331.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
   document.getElementById('backToMainMenu').appendChild(addressElement331);*/
+
+  function mostrar_dialogo(){
+    document.getElementById('myDialog').showModal();
+  }
+
+  function limpar() {
+    var childs =  document.getElementById('bebidas_adicionadas').childNodes;
+    for (var i = 0; i < childs.length; ) {
+      document.getElementById('bebidas_adicionadas').removeChild(childs[i]);
+    }
+  }
 
   function adicionar_bebida(variavel) {
 
