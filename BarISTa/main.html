@@ -18,18 +18,22 @@
       }
       #valorContador { 
          position: absolute; 
-         top: 350px; 
-         left: 250px; 
-         width: 100%;
+         top: 150px; 
+         left: 350px; 
          font-size:20px;
-         z-index: 100;
+         z-index: 1;
          line-height: 1.5;
       }
+
+      #posicao_texto_empregado {
+          position: relative;
+      }
+
       #menu_opcoes .box .simple-caption {
           height: 30px;
           width: 200px;
           display: block;
-          bottom: -30px;
+          bottom: 30px;
           line-height: 25pt;
           text-align: center;
           margin-right: auto;
@@ -81,6 +85,7 @@
       flagWaiter = 0;
       contador = 0;
       taxi = 0;
+      bebidas = "0000000";
     }
       
     if (query!="") {
@@ -90,15 +95,17 @@
       var pair2 = vars[1].split("=");
       flagWaiter = pair2[1];
       var pair3 = vars[2].split("=");
-      taxi = pair3[1];    
+      taxi = pair3[1];
+      var pair4 = vars[3].split("=");
+      bebidas = pair4[1];
     }
     
     var sheet = document.createElement('style');
     if (flagWaiter == 0)
-      sheet.innerHTML = "#waiter { position: relative; }";
+      sheet.innerHTML = "#Waiter { position: relative; }";
 
     if (flagWaiter != 0)
-      sheet.innerHTML = "#waiter {background-color: #58cc58; position: relative;}";
+      sheet.innerHTML = "#Waiter {background-color: #58cc58; position: relative;}";
 
     document.head.appendChild(sheet);
   </script>
@@ -111,9 +118,14 @@
       var i = parseInt(document.getElementById('cont').innerHTML);
       i=i+1;
       contador = i;
-      var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+      var address1 = "empregado.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
+      var address2 = "alcool.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
+      var address3 = "bebidas.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
       document.getElementById('cont').innerHTML = i;
-      document.getElementById('hrefWaiter').href = address;
+      document.getElementById('hrefWaiter').href = address1;
+      document.getElementById('hrefAlcool').href = address2;
+      document.getElementById('hrefCocktail').href = address3;
+
     }
 
 
@@ -125,17 +137,21 @@
         contador = i;
       }
       
-      var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+      var address1 = "empregado.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
+      var address2 = "alcool.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
+      var address3 = "bebidas.html?hid1=" + i.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
       document.getElementById('cont').innerHTML = i;
-      document.getElementById('hrefWaiter').href = address;
-    }
+      document.getElementById('hrefWaiter').href = address1;
+      document.getElementById('hrefAlcool').href = address2;
+      document.getElementById('hrefCocktail').href = address3;
+  }
 
     function mover(img){
-      img.style = "opacity:0.5;";
+      document.getElementById(img).style = "opacity:0.5;";
     }
     
     function mout(img){
-      img.style = "opacity:1;";
+        document.getElementById(img).style = "opacity:1;";
         
     } 
   </script>
@@ -149,21 +165,14 @@
       <table align = center>
 
         <td>
-          <table align=center>
+          <table align="center">
             <tr>
-              <td> 
-                <div id ="menu1" class="box"> 
-                <a href="menu.html"> 
-                <img id="Menu" class="button" src = "Images/menuicon.png" width="350" height="260" onmouseover="mover(Menu);" onmouseout="mout(Menu);"></a>
-                <span class="simple-caption">
-                <p>Menu</p></span>
-                </div> 
-              </td>
-              <td>  
+
+                <div id="posicao_texto_empregado">
                 <div id ="valorContador"></div>
-                <div id ="waiter" class="box">
+                <div id ="waiter" class="box"></div>
                 </div> 
-              </td>
+
             </tr>
 
             <tr>
@@ -217,7 +226,6 @@
       addressElement2.innerHTML = "Pessoas a <br/\>sua frente:<br/\>"
     document.getElementById('valorContador').appendChild(addressElement2);
     
-    
     var contadorElement14 = document.createElement('span');
     var attribute14 = document.createAttribute("id");
     attribute14.value = "cont14";
@@ -239,10 +247,10 @@
     attribute2.value = "hrefWaiter";
     addressElement.setAttributeNode(attribute2);
     var attribute3 = document.createAttribute("href");
-    var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/empregado.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+    var address = "empregado.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
     attribute3.value = address;
     addressElement.setAttributeNode(attribute3);
-    addressElement.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/waitericon.png\" width=\"350\" height=\"260\"  onmouseover=\"mover(Waiter)\" onmouseout=\"mout(Waiter)\">";
+    addressElement.innerHTML = "<img id=\"Waiter\" class=\"button\" src = \"Images/waitericon.png\" width=\"350\" height=\"260\"  onmouseover=\"mover('waiter')\" onmouseout=\"mout('waiter')\">";
     document.getElementById('waiter').appendChild(addressElement);
     
     var simpleCaption = document.createElement('span');
@@ -255,13 +263,13 @@
     
     var addressElement1 = document.createElement('a');
     var attribute5 = document.createAttribute("id");
-    attribute5.value = "hrefAlchool";
+    attribute5.value = "hrefAlcool";
     addressElement1.setAttributeNode(attribute5);
     var attribute6 = document.createAttribute("href");
-    var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/alcool.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+    var address2 = "alcool.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
     attribute6.value = address2;
     addressElement1.setAttributeNode(attribute6);
-    addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover(Alcohol);\" onmouseout=\"mout(Alcohol);\">";
+    addressElement1.innerHTML = "<img id=\"Alcohol\" class=\"button\" src = \"Images/alcoholtest.jpg\" width=\"350\" height=\"260\" onmouseover=\"mover('Alcohol');\" onmouseout=\"mout('Alcohol');\">";
     document.getElementById('alcool').appendChild(addressElement1);
 
     var simpleCaption2 = document.createElement('span');
@@ -277,10 +285,10 @@
     attribute335.value = "hrefCocktail";
     addressElement331.setAttributeNode(attribute335);
     var attribute336 = document.createAttribute("href");
-    var address332 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/bebidas.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "#tab1";
+    var address332 = "bebidas.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas + "#tab1";
     attribute336.value = address332;
     addressElement331.setAttributeNode(attribute336);
-    addressElement331.innerHTML = "<img id=\"Cocktail\" class=\"button\" src = \"Images/cocktailicon.jpeg\" width=\"350\" height=\"260\" onmouseover=\"mover(Cocktail);\" onmouseout=\"mout(Cocktail);\">";
+    addressElement331.innerHTML = "<img id=\"Cocktail\" class=\"button\" src = \"Images/cocktailicon.jpeg\" width=\"350\" height=\"260\" onmouseover=\"mover('Cocktail');\" onmouseout=\"mout('Cocktail');\">";
     document.getElementById('custom').appendChild(addressElement331);
 
     var simpleCaption332 = document.createElement('span');

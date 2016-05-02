@@ -4,9 +4,9 @@
 	<style>
 	
 		@-webkit-keyframes bluePulse {
-				from { -webkit-box-shadow: 0 0 0 #333; }
-				to { -webkit-box-shadow: 0 0 18px #003f7f; }
-			}
+			from { -webkit-box-shadow: 0 0 0 #333; }
+			to { -webkit-box-shadow: 0 0 18px #003f7f; }
+		}
 			
 		h1 {
 			background-color: #007ffe;
@@ -72,6 +72,8 @@
 		flagWaiter = pair2[1];
 		var pair3 = vars[2].split("=");
 		taxi = pair3[1];
+		var pair4 = vars[3].split("=");
+		bebidas = pair4[1];
 		
 		
 		var addressElement1 = document.createElement('a');
@@ -82,7 +84,7 @@
 		attribute11.value = "image";
 		addressElement1.setAttributeNode(attribute11);
 		var attribute2 = document.createAttribute("href");
-		var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
+		var address = "main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
 		attribute2.value = address;
 		addressElement1.setAttributeNode(attribute2);
 		addressElement1.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
@@ -96,10 +98,10 @@
 		addressElement2.setAttributeNode(attribute3);
 		var attribute4 = document.createAttribute("href");
 		if (flagWaiter == 0)
-			var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=1" + "&hid3=" + taxi.toString();
+		    var address2 = "main.html?hid1=" + contador.toString() + "&hid2=1" + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
 			
 		if (flagWaiter == 1)
-			var address2 = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=0" + "&hid3=" + taxi.toString();
+		    var address2 = "main.html?hid1=" + contador.toString() + "&hid2=0" + "&hid3=" + taxi.toString() + "&hid4=" + bebidas;
 		
 		attribute4.value = address2;
 		addressElement2.setAttributeNode(attribute4);

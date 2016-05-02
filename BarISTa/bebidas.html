@@ -163,7 +163,7 @@
               <table align="center" width="600">
                 <tr>
                   <td>
-                    <img id="whiskey" src = "Images/whiskey.png" height="250" onclick="adicionar_bebida('whiskey')">
+                    <img id="whiskey" src = "Images/whiskey.png" height="250" onclick="adicionar_bebida('whiskey')" style="cursor: pointer;">
                   </td>
                   <td>
                     <span>Whiskey Jack Daniels: Bebida alco&oacute;lica fermentada preparada &agrave; base de malte de cevada, milho, centeio e &aacute;gua (40% &aacute;lcool)</span>
@@ -171,7 +171,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <img id="cerveja" src = "Images/beer.png" height="250" onclick="adicionar_bebida('cerveja')">
+                    <img id="cerveja" src = "Images/beer.png" height="250" onclick="adicionar_bebida('cerveja')" style="cursor: pointer;">
                   </td>
                   <td>
                     <span>Cerveja Super Bock: Cerveja portuguesa (5,2% &aacute;lcool)</span>
@@ -179,7 +179,7 @@
                 </tr>
                 <tr>
                   <td >
-                    <img id="rum" src = "Images/rum.PNG" height="250" onclick="adicionar_bebida('rum')">
+                    <img id="rum" src = "Images/rum.PNG" height="250" onclick="adicionar_bebida('rum')" style="cursor: pointer;">
                   </td>
                   <td>
                     <span>Rum Bacardi: Bebida alco&oacute;lica fermentada preparada &agrave; base do mela&ccedil;o e de caldo de cana  (37,5% &aacute;lcool)</span>
@@ -194,7 +194,7 @@
             <table align="center" width="600">
               <tr>
                 <td>
-                  <img id="cocacola" src = "Images/cocacola.png" height="250" onclick="adicionar_bebida('cocacola')">
+                  <img id="cocacola" src = "Images/cocacola.png" height="250" onclick="adicionar_bebida('cocacola')" style="cursor: pointer;">
                 </td>
                 <td>
                   <span>Coca cola: Bebida carbonada (com g&aacute;s) feita &agrave; base de &aacute;gua gaseificada, a&ccedil;&uacute;car, cafe&iacute;na e extrato de Noz de cola</span>
@@ -202,7 +202,7 @@
               </tr>
               <tr>
                 <td>
-                  <img id="fanta" src = "Images/fanta.png" height="250" onclick="adicionar_bebida('fanta')">
+                  <img id="fanta" src = "Images/fanta.png" height="250" onclick="adicionar_bebida('fanta')" style="cursor: pointer;">
                 </td>
                 <td>
                   <span>Fanta Laranja: Bebida carbonada (com g&aacute;s) feita &agrave; base de soro de leite coalhado, baga&ccedil;o de ma&ccedil;&atilde;, a&ccedil;&uacute;car e concentrado de laranja</span>
@@ -216,7 +216,7 @@
             <table align="center" width="600">
               <tr>
                 <td>
-                  <img id="limao" src = "Images/lemon.png" height="250" onclick="adicionar_bebida('limao')">
+                  <img id="limao" src = "Images/lemon.png" height="250" onclick="adicionar_bebida('limao')" style="cursor: pointer;">
                 </td>
                 <td>
                   <span>Rodela de Lim&atilde;o: Fruto &aacute;cido (2 un.)</span>
@@ -224,7 +224,7 @@
               </tr>
               <tr>
                 <td>
-                  <img id="azeitonas" src = "Images/olive.png" height="100" onclick="adicionar_bebida('azeitonas')">
+                  <img id="azeitonas" src = "Images/olive.png" height="100" onclick="adicionar_bebida('azeitonas')" style="cursor: pointer;">
                 </td>
                 <td>
                   <span>Azeitonas verdes: Pequena por&ccedil;&atilde;o de azeitonas verdes (2 un.)</span>
@@ -241,57 +241,95 @@
     </tr>
   </table>
   <div id ="backToMainMenu" align="center">
-      <a id="hrefBackToMain" class="image" href="http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1=0&amp;hid2=0&amp;hid3=0">
-      <img id="Back" src="Images/backicon.png" width="100" height="75"></a>
     </div>
   <div id ="confirmarBebida" align="center">
-      <img id="Back" src="Images/forward.png" width="100" height="75" onclick = "mostrar_dialogo()">
+
+      <img id="Forward" src="Images/forward.png" width="100" height="75" onclick = "mostrar_dialogo()" style="cursor: pointer;">
+      
     <div id="buttonINFi" align="center">
       <dialog id="myDialog"><b>A sua bebida foi encomendada!</br></b>(Esc para sair)</dialog>
     </div>
     </div>
   <div id ="limpar" align="center">
-      <img id="Limpar" src="Images/canceldrink.png" width="100" height="75" onclick = "limpar()"> </div>
+      <img id="Limpar" src="Images/canceldrink.png" width="100" height="75" onclick = "limpar()" style="cursor: pointer;"> </div>
 </body>
 
 <script>
-  /*var query = window.location.search.substring(1);      
-  var vars = query.split("&"); 
-  var pair1 = vars[0].split("=");
-  document.getElementById('cont').innerHTML = pair1[1];
-  contador = pair1[1];
-  var pair2 = vars[1].split("=");
-  flagWaiter = pair2[1];
-  var pair3 = vars[2].split("=");
-  taxi = pair3[1];
+
+    /*Funcao para substituir um caracter numa string*/
+    String.prototype.replaceAt = function (index, character) {
+        return this.substr(0, index) + character + this.substr(index + character.length);
+    }
+    String.prototype.getValueAt = function (index) {
+        return this.substr(index, 1);
+    }
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    var pair1 = vars[0].split("=");
+    contador = pair1[1];
+    var pair2 = vars[1].split("=");
+    flagWaiter = pair2[1];
+    var pair3 = vars[2].split("=");
+    taxivalor = pair3[1];
+    var pair4 = vars[3].split("=");
+    bebidas = pair4[1];
 
 
-  var addressElement331 = document.createElement('a');
-  var attribute331 = document.createAttribute("id");
-  attribute331.value = "hrefBackToMain";
-  addressElement331.setAttributeNode(attribute331);
-  var attribute3311 = document.createAttribute("class");
-  attribute3311.value = "image";
-  addressElement331.setAttributeNode(attribute3311);
-  var attribute332 = document.createAttribute("href");
-  var address = "http://web.ist.utl.pt/ist169401/IPM---A57/BarISTa/main.html?hid1="+ contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxi.toString();
-  attribute332.value = address;
-  addressElement331.setAttributeNode(attribute332);
-  addressElement331.innerHTML = "<img id=\"Back\" class=\"button\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
-  document.getElementById('backToMainMenu').appendChild(addressElement331);*/
+    
+    var addressElement1 = document.createElement('a');
+    var attribute1 = document.createAttribute("id");
+    attribute1.value = "hrefBackToMain";
+    addressElement1.setAttributeNode(attribute1);
+    var attribute11 = document.createAttribute("class");
+    attribute11.value = "image";
+    addressElement1.setAttributeNode(attribute11);
+    var attribute2 = document.createAttribute("href");
+    var address = "main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxivalor.toString() + "&hid4=" + bebidas;
+    attribute2.value = address;
+    addressElement1.setAttributeNode(attribute2);
+    addressElement1.innerHTML = "<img id=\"Back\" src = \"Images/backicon.png\" width=\"100\" height=\"75\">";
+    document.getElementById('backToMainMenu').appendChild(addressElement1);
 
-  function mostrar_dialogo(){
-    document.getElementById('myDialog').showModal();
+
+    if (bebidas == "0000000") {
+        document.getElementById('confirmarBebida').style = "opacity:0.25;";
+    }
+
+    function mostrar_dialogo() {
+        if (bebidas != "0000000") {
+            document.getElementById('myDialog').showModal();
+        }
   }
 
   function limpar() {
     var childs =  document.getElementById('bebidas_adicionadas').childNodes;
-    for (var i = 0; i < childs.length; ) {
-      document.getElementById('bebidas_adicionadas').removeChild(childs[i]);
+    for (var i = 0; i < childs.length;) {
+        remover_bebida(childs[i].id);
     }
   }
 
   function adicionar_bebida(variavel) {
+
+      if (bebidas == "0000000")
+          document.getElementById('confirmarBebida').style = "opacity:1;";
+
+      if (document.getElementById(variavel).id == "whiskey")
+          bebidas = bebidas.replaceAt(0, '1');
+      if (document.getElementById(variavel).id == "cerveja")
+          bebidas = bebidas.replaceAt(1, '1');
+      if (document.getElementById(variavel).id == "rum")
+          bebidas = bebidas.replaceAt(2, '1');
+      if (document.getElementById(variavel).id == "cocacola")
+          bebidas = bebidas.replaceAt(3, '1');
+      if (document.getElementById(variavel).id == "fanta")
+          bebidas = bebidas.replaceAt(4, '1');
+      if (document.getElementById(variavel).id == "limao")
+          bebidas = bebidas.replaceAt(5, '1');
+      if (document.getElementById(variavel).id == "azeitonas")
+          bebidas = bebidas.replaceAt(6, '1');
+
+    var address1 = "main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxivalor.toString() + "&hid4=" + bebidas;
+    document.getElementById('hrefBackToMain').href = address1;
 
     var teste = document.getElementById(variavel).id + "_adicionar";
 
@@ -319,8 +357,45 @@
   function remover_bebida(variavel) {
 
     var elem = document.getElementById(variavel);
+
+    if (document.getElementById(variavel).id == "whiskey_adicionar")
+        bebidas = bebidas.replaceAt(0, '0');
+
+    if (document.getElementById(variavel).id == "cerveja_adicionar")
+        bebidas = bebidas.replaceAt(1, '0');
+    if (document.getElementById(variavel).id == "rum_adicionar")
+        bebidas = bebidas.replaceAt(2, '0');
+    if (document.getElementById(variavel).id == "cocacola_adicionar")
+        bebidas = bebidas.replaceAt(3, '0');
+    if (document.getElementById(variavel).id == "fanta_adicionar")
+        bebidas = bebidas.replaceAt(4, '0');
+    if (document.getElementById(variavel).id == "limao_adicionar")
+        bebidas = bebidas.replaceAt(5, '0');
+    if (document.getElementById(variavel).id == "azeitonas_adicionar")
+        bebidas = bebidas.replaceAt(6, '0');
+
+    var address1 = "main.html?hid1=" + contador.toString() + "&hid2=" + flagWaiter.toString() + "&hid3=" + taxivalor.toString() + "&hid4=" + bebidas;
+    document.getElementById('hrefBackToMain').href = address1;
+      
+    if (bebidas == "0000000")
+        document.getElementById('confirmarBebida').style = "opacity:0.2;";
+
     elem.parentNode.removeChild(elem);
-
-
   }
+
+
+  if (bebidas.getValueAt(0) == "1")
+      adicionar_bebida("whiskey");
+  if (bebidas.getValueAt(1) == "1")
+      adicionar_bebida("cerveja");
+  if (bebidas.getValueAt(2) == "1")
+      adicionar_bebida("rum");
+  if (bebidas.getValueAt(3) == "1")
+      adicionar_bebida("cocacola");
+  if (bebidas.getValueAt(4) == "1")
+      adicionar_bebida("fanta");
+  if (bebidas.getValueAt(5) == "1")
+      adicionar_bebida("limao");
+  if (bebidas.getValueAt(6) == "1")
+      adicionar_bebida("azeitonas");
 </script>
